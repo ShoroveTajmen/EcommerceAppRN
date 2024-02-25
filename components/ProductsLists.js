@@ -1,15 +1,15 @@
 import * as React from "react";
-import { FlatList, Text } from "react-native";
+import { FlatList } from "react-native";
 import { products } from "../products";
+import ProductCard from "./ProductCard";
 
 export default function ProductsList() {
   return (
     <FlatList
       data={products}
       keyExtractor={(product) => product.id}
-      renderItem={({ item }) => (
-        <Text className="text-black">{item.title}</Text>
-      )}
+      renderItem={({ item }) => <ProductCard {...item}></ProductCard>}
+      contentContainerStyle={{ paddingHorizontal: 15 }}
     ></FlatList>
   );
 }
